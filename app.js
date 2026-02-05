@@ -2,21 +2,48 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// attivazione della cartella public per uso file statici
+app.use(express.static('public'));
+
 // rotta principale
 app.get('/', (req, res) => {
     res.send('Server del mio blog')
 })
 
-
 app.get('/bacheca', (req, res) => {
 
     // array dei post definito all'inizio
     const posts = [
-        { title: "Post 1", content: "Testo del post", img: "img1.jpg", tags: ["tag1"] },
-        { title: "Post 2", content: "Testo del post", img: "img2.jpg", tags: ["tag2"] },
-        { title: "Post 3", content: "Testo del post", img: "img3.jpg", tags: ["tag3"] },
-        { title: "Post 4", content: "Testo del post", img: "img4.jpg", tags: ["tag4"] },
-        { title: "Post 5", content: "Testo del post", img: "img5.jpg", tags: ["tag5"] },
+        {
+            title: "ciambellone",
+            content: "ciambellone",
+            img: "images/ciambellone.jpeg",
+            tags: ["tag1"]
+        },
+        {
+            title: "cracker barbabietola",
+            content: "cracker barbabietola",
+            img: "images/cracker_barbabietola.jpeg",
+            tags: ["tag2"]
+        },
+        {
+            title: "pane fritto dolce",
+            content: "pane fritto dolce",
+            img: "images/pane_fritto_dolce.jpeg",
+            tags: ["tag3"]
+        },
+        {
+            title: "pasta barbabietola",
+            content: "pasta barbabietola",
+            img: "images/pasta_barbabietola.jpeg",
+            tags: ["tag4"]
+        },
+        {
+            title: "torta paesana",
+            content: "torta paesana",
+            img: "images/torta_paesana.jpeg",
+            tags: ["tag5"]
+        },
     ]
     res.json(posts)
 })
